@@ -1,6 +1,5 @@
 import * as React from "react";
-import { StyleProp, ViewStyle, StyleSheet } from "react-native";
-import { Image } from "expo-image";
+import { StyleProp, ViewStyle, Image, StyleSheet } from "react-native";
 import { Border } from "../GlobalStyles";
 
 type UploadIconType = {
@@ -11,7 +10,7 @@ const UploadIcon = ({ style }: UploadIconType) => {
   return (
     <Image
       style={[styles.uploadIcon, style]}
-      contentFit="cover"
+      resizeMode="cover"
       source={require("../assets/upload.png")}
     />
   );

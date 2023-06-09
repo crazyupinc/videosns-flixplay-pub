@@ -1,14 +1,15 @@
 import React, { useState, useCallback } from "react";
 import {
   ScrollView,
-  Text,
+  StatusBar,
   StyleSheet,
+  Text,
+  Image,
   View,
   Pressable,
   Linking,
   Modal,
 } from "react-native";
-import { Image } from "expo-image";
 import AddFollowPopup1 from "../components/AddFollowPopup1";
 import CommentPopup from "../components/CommentPopup";
 import AddFollowPopup2 from "../components/AddFollowPopup2";
@@ -60,11 +61,12 @@ const Main = () => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.mainScrollViewContent}
       >
+        <StatusBar barStyle="default" />
         <View style={[styles.header, styles.headerFlexBox]}>
           <Text style={styles.logo}>FlixPlay</Text>
           <Image
             style={[styles.menuIcon, styles.menuIconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/menu.png")}
           />
         </View>
@@ -74,7 +76,7 @@ const Main = () => {
               <View style={styles.homeFlexBox}>
                 <Image
                   style={styles.iconLayout}
-                  contentFit="cover"
+                  resizeMode="cover"
                   source={require("../assets/icon1.png")}
                 />
                 <Text style={styles.id}>jennylove</Text>
@@ -86,21 +88,21 @@ const Main = () => {
               >
                 <Image
                   style={styles.icon1}
-                  contentFit="cover"
+                  resizeMode="cover"
                   source={require("../assets/userplus.png")}
                 />
               </Pressable>
             </View>
             <Image
               style={[styles.imgIcon, styles.divSpaceBlock]}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/img.png")}
             />
             <View style={[styles.div, styles.divSpaceBlock]}>
               <View style={styles.div1}>
                 <Image
                   style={[styles.thumbsUpIcon, styles.commentPosition]}
-                  contentFit="cover"
+                  resizeMode="cover"
                   source={require("../assets/thumbsup.png")}
                 />
                 <Pressable
@@ -109,7 +111,7 @@ const Main = () => {
                 >
                   <Image
                     style={styles.icon1}
-                    contentFit="cover"
+                    resizeMode="cover"
                     source={require("../assets/comment.png")}
                   />
                 </Pressable>
@@ -148,21 +150,21 @@ const Main = () => {
               >
                 <Image
                   style={styles.icon1}
-                  contentFit="cover"
+                  resizeMode="cover"
                   source={require("../assets/userplus.png")}
                 />
               </Pressable>
             </View>
             <Image
               style={[styles.imgIcon, styles.divSpaceBlock]}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/img1.png")}
             />
             <View style={[styles.div, styles.divSpaceBlock]}>
               <View style={styles.div1}>
                 <Image
                   style={[styles.thumbsUpIcon, styles.commentPosition]}
-                  contentFit="cover"
+                  resizeMode="cover"
                   source={require("../assets/thumbsup.png")}
                 />
                 <Pressable
@@ -171,7 +173,7 @@ const Main = () => {
                 >
                   <Image
                     style={styles.icon1}
-                    contentFit="cover"
+                    resizeMode="cover"
                     source={require("../assets/comment.png")}
                   />
                 </Pressable>
@@ -285,7 +287,7 @@ const styles = StyleSheet.create({
     lineHeight: 28,
     fontFamily: FontFamily.istokWebBold,
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
     fontWeight: "700",
   },
   menuIcon: {
@@ -302,7 +304,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: FontFamily.notoSansKRBold,
     fontSize: FontSize.size_base,
-    color: Color.black,
+    color: Color.lightLabelPrimary,
     fontWeight: "700",
   },
   time: {
@@ -372,7 +374,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.notoSansKRBold,
     fontSize: FontSize.size_base,
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
     fontWeight: "700",
   },
   chanel: {

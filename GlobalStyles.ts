@@ -5,6 +5,7 @@ export const FontFamily = {
   notoSansKRMedium: "Noto Sans KR_medium",
   istokWebBold: "Istok Web_bold",
   notoSansKRLight: "Noto Sans KR_light",
+  robotoSemibold: "Roboto_semibold",
   appleSDGothicNeoMedium: "Apple SD Gothic Neo_medium",
   notoSansKRBlack: "Noto Sans KR_black",
 };
@@ -16,6 +17,7 @@ export const FontSize = {
   size_22xl: 41,
   size_base: 16,
   size_xs: 12,
+  size_mini: 15,
   size_xs_1: 11,
   size_xl: 20,
   size_3xs: 10,
@@ -23,7 +25,7 @@ export const FontSize = {
 /* Colors */
 export const Color = {
   basicWhite: "#fff",
-  black: "#000",
+  lightLabelPrimary: "#000",
   dimgray_200: "#735469",
   dimgray_100: "#555",
   whitesmoke_100: "#f8f9fa",
@@ -32,14 +34,13 @@ export const Color = {
   grey: "#878787",
   gray_100: "#0f2435",
   lightgray: "#ccc",
-  crimson: "rgba(255, 38, 77, 0.92)",
   paleturquoise: "#abe9da",
   silver: "#c2c2c2",
+  crimson: "rgba(255, 38, 77, 0.92)",
 };
 /* Paddings */
 export const Padding = {
   p_7xl: 26,
-  p_16xl: 35,
   p_181xl: 200,
   p_3xs: 10,
   p_mini: 15,
@@ -50,8 +51,8 @@ export const Padding = {
   p_base: 16,
   p_5xs: 8,
   p_11xl: 30,
-  p_smi: 13,
   p_281xl: 300,
+  p_smi: 13,
 };
 /* border radiuses */
 export const Border = {

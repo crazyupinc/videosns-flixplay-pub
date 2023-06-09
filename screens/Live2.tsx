@@ -1,7 +1,6 @@
 import * as React from "react";
-import { ScrollView, Text, StyleSheet, View } from "react-native";
-import { Image } from "expo-image";
-import { Padding, Color, Border, FontFamily, FontSize } from "../GlobalStyles";
+import { ScrollView, Image, StyleSheet, Text, View } from "react-native";
+import { Color, Padding, Border, FontFamily, FontSize } from "../GlobalStyles";
 
 const Live2 = () => {
   return (
@@ -11,11 +10,19 @@ const Live2 = () => {
       showsVerticalScrollIndicator={false}
       contentContainerStyle={styles.liveScrollViewContent}
     >
+      <View style={styles.statusBarLight}>
+        <Image
+          style={styles.icons}
+          resizeMode="cover"
+          source={require("../assets/icons.png")}
+        />
+        <Text style={[styles.time, styles.timeClr]}>9:41</Text>
+      </View>
       <View style={[styles.header, styles.headerSpaceBlock]}>
         <Text style={styles.logo}>FlixPlay</Text>
         <Image
           style={styles.menuIcon}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/menu.png")}
         />
       </View>
@@ -23,7 +30,7 @@ const Live2 = () => {
         <View style={[styles.liveContent, styles.liveContentShadowBox1]}>
           <Image
             style={styles.liveScreenIcon}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/livescreen.png")}
           />
           <View style={styles.info}>
@@ -42,7 +49,7 @@ const Live2 = () => {
         <View style={styles.liveContentShadowBox}>
           <Image
             style={[styles.liveScreenIcon1, styles.liveIconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/livescreen1.png")}
           />
           <View style={styles.info}>
@@ -61,7 +68,7 @@ const Live2 = () => {
         <View style={styles.liveContentShadowBox}>
           <Image
             style={[styles.liveScreenIcon2, styles.liveIconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/livescreen2.png")}
           />
           <View style={styles.info}>
@@ -90,6 +97,10 @@ const styles = StyleSheet.create({
     maxWidth: "100%",
     width: "100%",
   },
+  timeClr: {
+    color: Color.lightLabelPrimary,
+    lineHeight: 20,
+  },
   headerSpaceBlock: {
     paddingVertical: 0,
     alignItems: "center",
@@ -117,8 +128,8 @@ const styles = StyleSheet.create({
   },
   idTypo: {
     fontFamily: FontFamily.notoSansKRBold,
-    color: Color.black,
     fontWeight: "700",
+    color: Color.lightLabelPrimary,
   },
   info1Typo: {
     fontFamily: FontFamily.appleSDGothicNeoMedium,
@@ -133,13 +144,36 @@ const styles = StyleSheet.create({
     height: 49,
     width: 72,
   },
+  icons: {
+    top: 18,
+    right: 14,
+    width: 67,
+    height: 11,
+    position: "absolute",
+  },
+  time: {
+    marginTop: -8,
+    top: "50%",
+    left: 32,
+    fontSize: FontSize.size_mini,
+    letterSpacing: 0,
+    fontWeight: "600",
+    fontFamily: FontFamily.robotoSemibold,
+    textAlign: "left",
+    position: "absolute",
+  },
+  statusBarLight: {
+    width: 360,
+    height: 44,
+    backgroundColor: Color.basicWhite,
+  },
   logo: {
     fontSize: FontSize.size_xl,
     lineHeight: 28,
     fontFamily: FontFamily.istokWebBold,
-    textAlign: "left",
-    color: Color.black,
     fontWeight: "700",
+    textAlign: "left",
+    color: Color.lightLabelPrimary,
   },
   menuIcon: {
     height: 24,
@@ -177,14 +211,14 @@ const styles = StyleSheet.create({
   },
   info1: {
     fontSize: FontSize.size_sm,
-    lineHeight: 20,
     display: "flex",
     height: 34,
     marginTop: 3,
-    color: Color.black,
     alignItems: "center",
     alignSelf: "stretch",
     overflow: "hidden",
+    color: Color.lightLabelPrimary,
+    lineHeight: 20,
   },
   info: {
     paddingVertical: Padding.p_smi,
@@ -198,7 +232,6 @@ const styles = StyleSheet.create({
     color: Color.basicWhite,
   },
   liveLabel: {
-    position: "absolute",
     top: 11,
     right: 17,
     borderRadius: Border.br_9xs,
@@ -209,6 +242,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
+    position: "absolute",
   },
   liveContent: {
     elevation: 16,

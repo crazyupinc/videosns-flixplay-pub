@@ -1,6 +1,5 @@
 import * as React from "react";
-import { StyleProp, ViewStyle, StyleSheet, View } from "react-native";
-import { Image } from "expo-image";
+import { StyleProp, ViewStyle, Image, StyleSheet, View } from "react-native";
 import { Padding } from "../GlobalStyles";
 
 type HomeType = {
@@ -12,7 +11,7 @@ const Home = ({ style }: HomeType) => {
     <View style={[styles.home, style]}>
       <Image
         style={styles.homeIcon}
-        contentFit="cover"
+        resizeMode="cover"
         source={require("../assets/home.png")}
       />
     </View>

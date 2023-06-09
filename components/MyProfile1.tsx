@@ -1,6 +1,5 @@
 import * as React from "react";
-import { StyleProp, ViewStyle, StyleSheet, View } from "react-native";
-import { Image } from "expo-image";
+import { StyleProp, ViewStyle, Image, StyleSheet, View } from "react-native";
 
 type MyProfile1Type = {
   style?: StyleProp<ViewStyle>;
@@ -11,7 +10,7 @@ const MyProfile1 = ({ style }: MyProfile1Type) => {
     <View style={[styles.myProfile, style]}>
       <Image
         style={styles.userIcon}
-        contentFit="cover"
+        resizeMode="cover"
         source={require("../assets/user.png")}
       />
     </View>

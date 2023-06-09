@@ -1,6 +1,13 @@
 import * as React from "react";
-import { Text, StyleSheet, Pressable, View, Linking } from "react-native";
-import { Image } from "expo-image";
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+  Image,
+  Linking,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Color, FontFamily, FontSize, Padding, Border } from "../GlobalStyles";
 
@@ -9,7 +16,8 @@ const Register = () => {
 
   return (
     <View style={[styles.register, styles.registerLayout]}>
-      <View style={[styles.loginPopup, styles.registerLayout]}>
+      <StatusBar style={styles.loginPopupLayout} barStyle="default" />
+      <View style={[styles.loginPopup, styles.loginPopupLayout]}>
         <Text style={styles.title}>FlixPlay</Text>
         <View style={styles.snsLogin}>
           <Pressable
@@ -62,7 +70,7 @@ const Register = () => {
         <Pressable style={styles.x} onPress={() => navigation.goBack()}>
           <Image
             style={styles.icon}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/x.png")}
           />
         </Pressable>
@@ -74,9 +82,12 @@ const Register = () => {
 const styles = StyleSheet.create({
   registerLayout: {
     height: 637,
-    backgroundColor: Color.basicWhite,
     alignItems: "center",
     overflow: "hidden",
+  },
+  loginPopupLayout: {
+    width: 360,
+    backgroundColor: Color.basicWhite,
   },
   startTypo: {
     textAlign: "center",
@@ -100,7 +111,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.istokWebBold,
     textAlign: "left",
     zIndex: 0,
-    color: Color.black,
+    color: Color.lightLabelPrimary,
   },
   startWithFacebook: {
     color: Color.basicWhite,
@@ -118,7 +129,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#3351a3",
   },
   startWithKakao: {
-    color: Color.black,
+    color: Color.lightLabelPrimary,
   },
   buttonKakao: {
     backgroundColor: "#fee20b",
@@ -147,17 +158,19 @@ const styles = StyleSheet.create({
     zIndex: 2,
   },
   loginPopup: {
-    width: 360,
     paddingHorizontal: Padding.p_7xl,
-    paddingVertical: Padding.p_16xl,
+    paddingVertical: 35,
     alignItems: "center",
     overflow: "hidden",
+    height: 637,
   },
   register: {
     flex: 1,
     alignItems: "center",
     overflow: "hidden",
     width: "100%",
+    backgroundColor: Color.basicWhite,
+    height: 637,
   },
 });
 

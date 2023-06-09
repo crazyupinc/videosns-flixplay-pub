@@ -1,6 +1,5 @@
 import * as React from "react";
-import { View, StyleSheet, Text, TextInput } from "react-native";
-import { Image } from "expo-image";
+import { View, Image, StyleSheet, Text, TextInput } from "react-native";
 import { Border, Color, FontFamily, FontSize, Padding } from "../GlobalStyles";
 
 type CommentPopupType = {
@@ -13,7 +12,7 @@ const CommentPopup = ({ onClose }: CommentPopupType) => {
       <View style={styles.comment1}>
         <Image
           style={[styles.icon, styles.iconLayout]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/icon.png")}
         />
         <View style={styles.div}>
@@ -42,7 +41,7 @@ const CommentPopup = ({ onClose }: CommentPopupType) => {
       <View style={styles.comment2FlexBox}>
         <Image
           style={[styles.icon, styles.iconLayout]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/div.png")}
         />
         <View style={styles.div}>
@@ -58,7 +57,7 @@ const CommentPopup = ({ onClose }: CommentPopupType) => {
       <View style={styles.comment2FlexBox}>
         <Image
           style={[styles.icon, styles.iconLayout]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/div1.png")}
         />
         <View style={styles.div}>
@@ -80,7 +79,7 @@ const CommentPopup = ({ onClose }: CommentPopupType) => {
         />
         <Image
           style={styles.sendIcon}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/send.png")}
         />
       </View>
@@ -120,7 +119,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_smi,
     fontWeight: "700",
     fontFamily: FontFamily.notoSansKRBold,
-    color: Color.black,
+    color: Color.lightLabelPrimary,
     textAlign: "left",
     lineHeight: 24,
   },

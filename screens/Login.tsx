@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Text, StyleSheet, TextInput, View, Pressable } from "react-native";
+import {
+  StatusBar,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+  Pressable,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Color, FontFamily, FontSize, Border, Padding } from "../GlobalStyles";
 
@@ -8,6 +15,7 @@ const Login = () => {
 
   return (
     <View style={styles.login}>
+      <StatusBar barStyle="default" />
       <Text style={[styles.logo, styles.logoFlexBox]}>FlixPlay</Text>
       <View style={styles.loginForm}>
         <View>
@@ -59,7 +67,7 @@ const Login = () => {
 const styles = StyleSheet.create({
   logoFlexBox: {
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
   },
   emailTypo: {
     fontFamily: FontFamily.notoSansKRMedium,
@@ -83,13 +91,14 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_22xl,
     lineHeight: 28,
     fontFamily: FontFamily.istokWebBold,
+    marginTop: 61,
     fontWeight: "700",
     textAlign: "left",
   },
   email: {
     fontSize: FontSize.size_smi,
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
   },
   inputBox: {
     borderRadius: Border.br_6xs,
@@ -123,7 +132,7 @@ const styles = StyleSheet.create({
   },
   buttonLogin: {
     borderRadius: Border.br_base,
-    backgroundColor: Color.black,
+    backgroundColor: Color.lightLabelPrimary,
     padding: Padding.p_3xs,
     marginTop: 16,
   },
@@ -133,7 +142,7 @@ const styles = StyleSheet.create({
   },
   text3: {
     fontFamily: FontFamily.notoSansKRBold,
-    color: Color.black,
+    color: Color.lightLabelPrimary,
     fontWeight: "700",
   },
   text1: {
@@ -143,14 +152,13 @@ const styles = StyleSheet.create({
     marginTop: 61,
   },
   login: {
-    backgroundColor: Color.basicWhite,
     flex: 1,
     width: "100%",
     paddingHorizontal: Padding.p_7xl,
-    paddingTop: Padding.p_16xl,
     paddingBottom: Padding.p_181xl,
     alignItems: "center",
     overflow: "hidden",
+    backgroundColor: Color.basicWhite,
   },
 });
 

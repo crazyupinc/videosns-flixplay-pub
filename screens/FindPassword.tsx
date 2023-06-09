@@ -1,5 +1,12 @@
 import * as React from "react";
-import { Text, StyleSheet, TextInput, View, Pressable } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  Pressable,
+} from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Color, FontFamily, FontSize, Border, Padding } from "../GlobalStyles";
 
@@ -8,10 +15,18 @@ const FindPassword = () => {
 
   return (
     <View style={styles.findPassword}>
-      <Text style={[styles.logo, styles.logoFlexBox]}>FlixPlay</Text>
+      <View style={styles.statusBarLight}>
+        <Image
+          style={styles.icons}
+          resizeMode="cover"
+          source={require("../assets/icons.png")}
+        />
+        <Text style={[styles.time, styles.timeFlexBox]}>9:41</Text>
+      </View>
+      <Text style={[styles.logo, styles.timeFlexBox]}>FlixPlay</Text>
       <View style={styles.div}>
         <View>
-          <Text style={styles.logoFlexBox}>
+          <Text style={styles.timeFlexBox}>
             <Text
               style={[styles.text, styles.textTypo]}
             >{`이메일을 확인해주세요.
@@ -43,9 +58,9 @@ const FindPassword = () => {
 };
 
 const styles = StyleSheet.create({
-  logoFlexBox: {
+  timeFlexBox: {
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
   },
   textTypo: {
     fontFamily: FontFamily.notoSansKRMedium,
@@ -56,11 +71,35 @@ const styles = StyleSheet.create({
     width: 302,
     alignItems: "center",
   },
+  icons: {
+    top: 18,
+    right: 14,
+    width: 67,
+    height: 11,
+    position: "absolute",
+  },
+  time: {
+    marginTop: -8,
+    top: "50%",
+    left: 32,
+    fontSize: FontSize.size_mini,
+    letterSpacing: 0,
+    lineHeight: 20,
+    fontWeight: "600",
+    fontFamily: FontFamily.robotoSemibold,
+    position: "absolute",
+  },
+  statusBarLight: {
+    width: 360,
+    height: 44,
+    backgroundColor: Color.basicWhite,
+  },
   logo: {
     fontSize: FontSize.size_22xl,
     lineHeight: 28,
     fontWeight: "700",
     fontFamily: FontFamily.istokWebBold,
+    marginTop: 61,
   },
   text: {
     fontSize: 18,
@@ -72,7 +111,7 @@ const styles = StyleSheet.create({
   email: {
     fontSize: FontSize.size_smi,
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
   },
   inputBox: {
     borderRadius: Border.br_6xs,
@@ -97,7 +136,7 @@ const styles = StyleSheet.create({
   },
   button: {
     borderRadius: Border.br_base,
-    backgroundColor: Color.black,
+    backgroundColor: Color.lightLabelPrimary,
     padding: Padding.p_3xs,
     justifyContent: "center",
     marginTop: 16,
@@ -106,15 +145,14 @@ const styles = StyleSheet.create({
     marginTop: 61,
   },
   findPassword: {
-    backgroundColor: Color.basicWhite,
     flex: 1,
     width: "100%",
     height: 637,
     paddingHorizontal: Padding.p_7xl,
-    paddingTop: Padding.p_16xl,
     paddingBottom: Padding.p_181xl,
     alignItems: "center",
     overflow: "hidden",
+    backgroundColor: Color.basicWhite,
   },
 });
 

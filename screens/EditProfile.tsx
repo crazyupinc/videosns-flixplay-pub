@@ -1,14 +1,21 @@
 import * as React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { Image } from "expo-image";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { FontFamily, Color, FontSize, Padding, Border } from "../GlobalStyles";
+import { Color, FontFamily, FontSize, Padding, Border } from "../GlobalStyles";
 
 const EditProfile = () => {
   const navigation = useNavigation();
 
   return (
     <View style={[styles.editProfile, styles.iconLayout]}>
+      <View style={[styles.statusBarLight, styles.headerLayout]}>
+        <Image
+          style={styles.icons}
+          resizeMode="cover"
+          source={require("../assets/icons.png")}
+        />
+        <Text style={[styles.time, styles.timeFlexBox]}>9:41</Text>
+      </View>
       <View style={[styles.header, styles.headerFlexBox]}>
         <Pressable
           style={styles.saveIconLayout}
@@ -16,16 +23,16 @@ const EditProfile = () => {
         >
           <Image
             style={[styles.icon, styles.iconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/arrowleft.png")}
           />
         </Pressable>
         <View style={[styles.autoAddedFrame, styles.headerFlexBox]}>
-          <Text style={styles.logo}>프로필 편집</Text>
+          <Text style={[styles.logo, styles.logoTypo]}>프로필 편집</Text>
         </View>
         <Image
           style={[styles.saveIcon, styles.saveIconLayout]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/save.png")}
         />
       </View>
@@ -34,11 +41,11 @@ const EditProfile = () => {
           <View style={[styles.icon1, styles.icon1Border]}>
             <Image
               style={styles.image9Icon}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/image-9.png")}
             />
           </View>
-          <Text style={[styles.id, styles.idTypo]}>사진 변경</Text>
+          <Text style={[styles.id, styles.tagTypo]}>사진 변경</Text>
         </View>
       </View>
       <View>
@@ -105,10 +112,22 @@ const styles = StyleSheet.create({
     width: "100%",
     overflow: "hidden",
   },
+  headerLayout: {
+    width: 360,
+    backgroundColor: Color.basicWhite,
+  },
+  timeFlexBox: {
+    textAlign: "left",
+    color: Color.lightLabelPrimary,
+  },
   headerFlexBox: {
     flexDirection: "row",
     alignItems: "center",
     overflow: "hidden",
+  },
+  logoTypo: {
+    fontFamily: FontFamily.notoSansKRBold,
+    fontWeight: "700",
   },
   saveIconLayout: {
     height: 24,
@@ -118,7 +137,7 @@ const styles = StyleSheet.create({
     borderColor: "#ccc",
     borderStyle: "solid",
   },
-  idTypo: {
+  tagTypo: {
     fontFamily: FontFamily.notoSansKRMedium,
     fontWeight: "500",
   },
@@ -128,8 +147,8 @@ const styles = StyleSheet.create({
     display: "flex",
     color: Color.lightgray,
     fontSize: FontSize.size_xs,
-    lineHeight: 20,
     textAlign: "left",
+    lineHeight: 20,
     alignItems: "center",
     overflow: "hidden",
   },
@@ -138,20 +157,41 @@ const styles = StyleSheet.create({
     width: 328,
     display: "flex",
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
     alignItems: "center",
     overflow: "hidden",
+  },
+  icons: {
+    top: 18,
+    right: 14,
+    width: 67,
+    height: 11,
+    position: "absolute",
+  },
+  time: {
+    marginTop: -8,
+    top: "50%",
+    left: 32,
+    fontSize: FontSize.size_mini,
+    letterSpacing: 0,
+    fontWeight: "600",
+    fontFamily: FontFamily.robotoSemibold,
+    lineHeight: 20,
+    position: "absolute",
+  },
+  statusBarLight: {
+    height: 44,
   },
   icon: {
     height: "100%",
     overflow: "hidden",
   },
   logo: {
-    textAlign: "left",
-    color: Color.black,
+    fontSize: FontSize.size_base,
     fontFamily: FontFamily.notoSansKRBold,
     fontWeight: "700",
-    fontSize: FontSize.size_base,
+    textAlign: "left",
+    color: Color.lightLabelPrimary,
   },
   autoAddedFrame: {
     alignSelf: "stretch",
@@ -160,11 +200,11 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   header: {
-    width: 360,
     height: 51,
     paddingHorizontal: Padding.p_base,
     paddingVertical: 0,
     justifyContent: "space-between",
+    width: 360,
     backgroundColor: Color.basicWhite,
   },
   image9Icon: {
@@ -185,9 +225,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     marginTop: 6,
     fontSize: FontSize.size_sm,
-    fontFamily: FontFamily.notoSansKRMedium,
     fontWeight: "500",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
   },
   icon1FlexBox: {
     justifyContent: "center",
@@ -205,7 +244,6 @@ const styles = StyleSheet.create({
   crazyupinc: {
     fontFamily: FontFamily.notoSansKRBold,
     fontWeight: "700",
-    height: 40,
     fontSize: FontSize.size_base,
   },
   tagPeople2: {
@@ -217,18 +255,16 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   text: {
-    lineHeight: 20,
-    height: 40,
     fontFamily: FontFamily.notoSansKRMedium,
     fontWeight: "500",
     fontSize: FontSize.size_sm,
+    lineHeight: 20,
   },
   tagPeople7: {
-    lineHeight: 20,
-    height: 40,
     fontFamily: FontFamily.notoSansKRMedium,
     fontWeight: "500",
     fontSize: FontSize.size_sm,
+    lineHeight: 20,
   },
   frameView: {
     marginTop: 10,

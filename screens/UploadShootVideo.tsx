@@ -1,14 +1,21 @@
 import * as React from "react";
-import { Pressable, StyleSheet, View } from "react-native";
-import { Image } from "expo-image";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Padding, Color } from "../GlobalStyles";
+import { Color, FontSize, FontFamily, Padding } from "../GlobalStyles";
 
 const UploadShootVideo = () => {
   const navigation = useNavigation();
 
   return (
     <View style={styles.uploadShootVideo}>
+      <View style={[styles.statusBarLight, styles.headerLayout1]}>
+        <Image
+          style={styles.icons}
+          resizeMode="cover"
+          source={require("../assets/icons.png")}
+        />
+        <Text style={styles.time}>9:41</Text>
+      </View>
       <View style={[styles.header, styles.headerFlexBox]}>
         <Pressable
           style={styles.iconLayout1}
@@ -16,7 +23,7 @@ const UploadShootVideo = () => {
         >
           <Image
             style={styles.iconLayout}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/arrowleft.png")}
           />
         </Pressable>
@@ -24,23 +31,23 @@ const UploadShootVideo = () => {
           <View style={[styles.autoAddedFrame, styles.headerFlexBox]}>
             <Image
               style={[styles.musicIcon, styles.iconLayout1]}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/music.png")}
             />
             <Image
               style={[styles.loaderIcon, styles.iconLayout1]}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/loader.png")}
             />
           </View>
           <Image
             style={[styles.smileIcon, styles.iconLayout1]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/smile.png")}
           />
           <Image
             style={[styles.smileIcon, styles.iconLayout1]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/download.png")}
           />
         </View>
@@ -50,7 +57,7 @@ const UploadShootVideo = () => {
         >
           <Image
             style={[styles.icon1, styles.iconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/arrowright.png")}
           />
         </Pressable>
@@ -58,17 +65,17 @@ const UploadShootVideo = () => {
       <View style={styles.content}>
         <Image
           style={styles.videoIcon}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/video.png")}
         />
         <Image
           style={styles.playCircleIcon}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/playcircle.png")}
         />
         <Image
           style={[styles.refreshCwIcon, styles.iconLayout1]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/refreshcw1.png")}
         />
       </View>
@@ -77,6 +84,10 @@ const UploadShootVideo = () => {
 };
 
 const styles = StyleSheet.create({
+  headerLayout1: {
+    width: 360,
+    backgroundColor: Color.basicWhite,
+  },
   headerFlexBox: {
     flexDirection: "row",
     alignItems: "center",
@@ -89,6 +100,29 @@ const styles = StyleSheet.create({
     height: "100%",
     overflow: "hidden",
     width: "100%",
+  },
+  icons: {
+    top: 18,
+    right: 14,
+    width: 67,
+    height: 11,
+    position: "absolute",
+  },
+  time: {
+    marginTop: -8,
+    top: "50%",
+    left: 32,
+    fontSize: FontSize.size_mini,
+    letterSpacing: 0,
+    lineHeight: 20,
+    fontWeight: "600",
+    fontFamily: FontFamily.robotoSemibold,
+    color: Color.lightLabelPrimary,
+    textAlign: "left",
+    position: "absolute",
+  },
+  statusBarLight: {
+    height: 44,
   },
   musicIcon: {
     overflow: "hidden",
@@ -113,12 +147,12 @@ const styles = StyleSheet.create({
     display: "none",
   },
   header: {
-    width: 360,
     paddingHorizontal: Padding.p_base,
     paddingVertical: 0,
     height: 51,
     flexDirection: "row",
     overflow: "hidden",
+    width: 360,
     backgroundColor: Color.basicWhite,
   },
   videoIcon: {
@@ -134,10 +168,10 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   refreshCwIcon: {
-    position: "absolute",
     top: 14,
     left: 282,
     zIndex: 2,
+    position: "absolute",
     overflow: "hidden",
   },
   content: {

@@ -1,28 +1,35 @@
 import * as React from "react";
-import { Image } from "expo-image";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, StyleSheet, Text, View } from "react-native";
 import { Color, FontFamily, FontSize, Border, Padding } from "../GlobalStyles";
 
 const UploadDetail = () => {
   return (
     <View style={styles.uploadDetail}>
+      <View style={[styles.statusBarLight, styles.headerLayout]}>
+        <Image
+          style={styles.icons}
+          resizeMode="cover"
+          source={require("../assets/icons.png")}
+        />
+        <Text style={[styles.time, styles.timeClr]}>9:41</Text>
+      </View>
       <View style={[styles.header, styles.headerFlexBox]}>
         <Image
           style={[styles.arrowLeftIcon, styles.iconLayout]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/arrowleft.png")}
         />
         <View style={[styles.upload, styles.iconSpaceBlock]}>
-          <Text style={[styles.upload1, styles.live1Clr]}>업로드</Text>
+          <Text style={[styles.upload1, styles.timeClr]}>업로드</Text>
         </View>
         <Image
           style={[styles.menuIcon, styles.iconSpaceBlock]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/menu.png")}
         />
         <Image
           style={[styles.arrowRightIcon, styles.iconSpaceBlock]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/arrowright.png")}
         />
       </View>
@@ -36,7 +43,7 @@ const UploadDetail = () => {
           </View>
           <Image
             style={styles.videoThumbnailIcon}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/videothumbnail.png")}
           />
         </View>
@@ -67,6 +74,14 @@ const UploadDetail = () => {
 };
 
 const styles = StyleSheet.create({
+  headerLayout: {
+    width: 360,
+    backgroundColor: Color.basicWhite,
+  },
+  timeClr: {
+    color: Color.lightLabelPrimary,
+    textAlign: "left",
+  },
   headerFlexBox: {
     flexDirection: "row",
     alignItems: "center",
@@ -79,10 +94,6 @@ const styles = StyleSheet.create({
     marginLeft: 112,
     overflow: "hidden",
   },
-  live1Clr: {
-    color: Color.black,
-    textAlign: "left",
-  },
   homeFlexBox: {
     justifyContent: "center",
     flexDirection: "row",
@@ -90,15 +101,15 @@ const styles = StyleSheet.create({
   shareTypo: {
     fontFamily: FontFamily.appleSDGothicNeoMedium,
     height: 40,
-    lineHeight: 20,
     left: 0,
     display: "flex",
     fontWeight: "500",
     fontSize: FontSize.size_sm,
-    position: "absolute",
     width: 328,
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
+    lineHeight: 20,
+    position: "absolute",
     alignItems: "center",
     overflow: "hidden",
   },
@@ -118,6 +129,29 @@ const styles = StyleSheet.create({
   homeLayout: {
     height: 49,
     width: 72,
+  },
+  icons: {
+    top: 18,
+    right: 14,
+    width: 67,
+    height: 11,
+    position: "absolute",
+  },
+  time: {
+    marginTop: -8,
+    top: "50%",
+    left: 32,
+    fontSize: FontSize.size_mini,
+    letterSpacing: 0,
+    fontWeight: "600",
+    fontFamily: FontFamily.robotoSemibold,
+    textAlign: "left",
+    lineHeight: 20,
+    color: Color.lightLabelPrimary,
+    position: "absolute",
+  },
+  statusBarLight: {
+    height: 44,
   },
   arrowLeftIcon: {
     overflow: "hidden",
@@ -144,12 +178,12 @@ const styles = StyleSheet.create({
     width: 24,
   },
   header: {
-    width: 360,
     height: 51,
     paddingHorizontal: Padding.p_base,
     paddingVertical: 0,
-    overflow: "hidden",
+    width: 360,
     backgroundColor: Color.basicWhite,
+    overflow: "hidden",
   },
   div1: {
     top: 10,
@@ -160,9 +194,9 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.notoSansKRMedium,
     fontWeight: "500",
     fontSize: FontSize.size_sm,
-    position: "absolute",
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
+    position: "absolute",
     alignItems: "center",
     overflow: "hidden",
   },
@@ -180,16 +214,16 @@ const styles = StyleSheet.create({
   tagPeople: {
     top: 0,
     height: 40,
-    lineHeight: 20,
     left: 0,
     display: "flex",
     fontFamily: FontFamily.notoSansKRMedium,
     fontWeight: "500",
     fontSize: FontSize.size_sm,
-    position: "absolute",
     width: 328,
     textAlign: "left",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
+    lineHeight: 20,
+    position: "absolute",
     alignItems: "center",
     overflow: "hidden",
   },
@@ -220,7 +254,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   uploadButton: {
-    backgroundColor: Color.black,
+    backgroundColor: Color.lightLabelPrimary,
     padding: Padding.p_3xs,
     marginLeft: 8,
   },

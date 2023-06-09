@@ -1,14 +1,21 @@
 import * as React from "react";
-import { Pressable, StyleSheet, View } from "react-native";
-import { Image } from "expo-image";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Padding, Color } from "../GlobalStyles";
+import { Color, FontSize, FontFamily, Padding } from "../GlobalStyles";
 
 const UploadEditingPhoto = () => {
   const navigation = useNavigation();
 
   return (
     <View style={[styles.uploadEditingPhoto, styles.iconLayout1]}>
+      <View style={[styles.statusBarLight, styles.headerLayout1]}>
+        <Image
+          style={styles.icons}
+          resizeMode="cover"
+          source={require("../assets/icons.png")}
+        />
+        <Text style={styles.time}>9:41</Text>
+      </View>
       <View style={[styles.header, styles.headerFlexBox]}>
         <Pressable
           style={styles.iconLayout}
@@ -16,7 +23,7 @@ const UploadEditingPhoto = () => {
         >
           <Image
             style={[styles.icon, styles.iconLayout1]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/arrowleft.png")}
           />
         </Pressable>
@@ -24,23 +31,23 @@ const UploadEditingPhoto = () => {
           <View style={[styles.autoAddedFrame, styles.headerFlexBox]}>
             <Image
               style={[styles.musicIcon, styles.iconLayout]}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/music.png")}
             />
             <Image
               style={[styles.loaderIcon, styles.iconLayout]}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/loader.png")}
             />
           </View>
           <Image
             style={[styles.smileIcon, styles.iconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/smile.png")}
           />
           <Image
             style={[styles.smileIcon, styles.iconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/download.png")}
           />
         </View>
@@ -50,7 +57,7 @@ const UploadEditingPhoto = () => {
         >
           <Image
             style={[styles.icon, styles.iconLayout1]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/arrowright.png")}
           />
         </Pressable>
@@ -58,7 +65,7 @@ const UploadEditingPhoto = () => {
       <View style={styles.content}>
         <Image
           style={styles.videoIcon}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/video.png")}
         />
       </View>
@@ -71,6 +78,10 @@ const styles = StyleSheet.create({
     width: "100%",
     overflow: "hidden",
   },
+  headerLayout1: {
+    width: 360,
+    backgroundColor: Color.basicWhite,
+  },
   headerFlexBox: {
     flexDirection: "row",
     alignItems: "center",
@@ -78,6 +89,29 @@ const styles = StyleSheet.create({
   iconLayout: {
     height: 24,
     width: 24,
+  },
+  icons: {
+    top: 18,
+    right: 14,
+    width: 67,
+    height: 11,
+    position: "absolute",
+  },
+  time: {
+    marginTop: -8,
+    top: "50%",
+    left: 32,
+    fontSize: FontSize.size_mini,
+    letterSpacing: 0,
+    lineHeight: 20,
+    fontWeight: "600",
+    fontFamily: FontFamily.robotoSemibold,
+    color: Color.lightLabelPrimary,
+    textAlign: "left",
+    position: "absolute",
+  },
+  statusBarLight: {
+    height: 44,
   },
   icon: {
     height: "100%",
@@ -100,13 +134,13 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   header: {
-    width: 360,
     paddingHorizontal: Padding.p_base,
     paddingVertical: 0,
     justifyContent: "space-between",
     height: 51,
     flexDirection: "row",
     overflow: "hidden",
+    width: 360,
     backgroundColor: Color.basicWhite,
   },
   videoIcon: {
@@ -122,6 +156,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     overflow: "hidden",
     backgroundColor: Color.basicWhite,
+    width: "100%",
   },
 });
 

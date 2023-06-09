@@ -1,13 +1,13 @@
 import React, { useState, useCallback } from "react";
 import {
-  Text,
+  Image,
   StyleSheet,
+  Text,
   View,
   TextInput,
   Pressable,
   Modal,
 } from "react-native";
-import { Image } from "expo-image";
 import AddFollowPopup3 from "../components/AddFollowPopup3";
 import { Padding, FontSize, FontFamily, Color, Border } from "../GlobalStyles";
 
@@ -28,33 +28,41 @@ const LiveDetail = ({ onClose }: LiveDetailType) => {
 
   return (
     <>
-      <View style={[styles.liveDetail, styles.icon3Layout]}>
+      <View style={[styles.liveDetail, styles.iconLayout2]}>
+        <View style={styles.statusBarLight}>
+          <Image
+            style={styles.icons}
+            resizeMode="cover"
+            source={require("../assets/icons.png")}
+          />
+          <Text style={styles.time}>9:41</Text>
+        </View>
         <View style={[styles.header, styles.headerSpaceBlock]}>
           <Text style={styles.logo}>FlixPlay</Text>
           <Image
             style={[styles.menuIcon, styles.iconLayout1]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/menu.png")}
           />
         </View>
         <Image
-          style={styles.liveVideoIcon}
-          contentFit="cover"
+          style={[styles.liveVideoIcon, styles.iconLayout2]}
+          resizeMode="cover"
           source={require("../assets/livevideo.png")}
         />
         <View style={styles.commentPopup}>
           <View style={styles.comment1}>
             <Image
               style={styles.iconLayout}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/icon2.png")}
             />
             <View style={styles.div}>
               <View style={styles.div1}>
                 <Text style={[styles.id, styles.idTypo]}>fan</Text>
-                <Text style={[styles.time, styles.timeTypo]}>30분</Text>
+                <Text style={[styles.time1, styles.time1Typo]}>30분</Text>
               </View>
-              <Text style={[styles.comment, styles.timeTypo]}>
+              <Text style={[styles.comment, styles.time1Typo]}>
                 She is such a talented performer! Her stage presence is amazing.
               </Text>
             </View>
@@ -64,9 +72,9 @@ const LiveDetail = ({ onClose }: LiveDetailType) => {
             <View style={styles.div}>
               <View style={styles.div1}>
                 <Text style={[styles.id, styles.idTypo]}>jenny-love</Text>
-                <Text style={[styles.time, styles.timeTypo]}>28분</Text>
+                <Text style={[styles.time1, styles.time1Typo]}>28분</Text>
               </View>
-              <Text style={[styles.comment, styles.timeTypo]}>
+              <Text style={[styles.comment, styles.time1Typo]}>
                 Her charm and charisma captivate audiences everywhere. She truly
                 owns the stage
               </Text>
@@ -75,15 +83,15 @@ const LiveDetail = ({ onClose }: LiveDetailType) => {
           <View style={styles.comment2FlexBox}>
             <Image
               style={styles.iconLayout}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/div2.png")}
             />
             <View style={styles.div}>
               <View style={styles.div1}>
                 <Text style={[styles.id, styles.idTypo]}>fanfany</Text>
-                <Text style={[styles.time, styles.timeTypo]}>25분</Text>
+                <Text style={[styles.time1, styles.time1Typo]}>25분</Text>
               </View>
-              <Text style={[styles.comment, styles.timeTypo]}>
+              <Text style={[styles.comment, styles.time1Typo]}>
                 She is such a talented performer! Her stage presence is amazing.
               </Text>
             </View>
@@ -91,15 +99,15 @@ const LiveDetail = ({ onClose }: LiveDetailType) => {
           <View style={styles.comment2FlexBox}>
             <Image
               style={styles.iconLayout}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/div3.png")}
             />
             <View style={styles.div}>
               <View style={styles.div1}>
                 <Text style={[styles.id, styles.idTypo]}>1324</Text>
-                <Text style={[styles.time, styles.timeTypo]}>20분</Text>
+                <Text style={[styles.time1, styles.time1Typo]}>20분</Text>
               </View>
-              <Text style={[styles.comment, styles.timeTypo]}>
+              <Text style={[styles.comment, styles.time1Typo]}>
                 Her charm and charisma captivate audiences everywhere. She truly
                 owns the stage
               </Text>
@@ -113,22 +121,22 @@ const LiveDetail = ({ onClose }: LiveDetailType) => {
             />
             <Image
               style={[styles.sendIcon, styles.iconLayout1]}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/send1.png")}
             />
           </View>
         </View>
-        <View style={[styles.author, styles.authorPosition]}>
+        <View style={styles.author}>
           <View style={[styles.icon2, styles.iconBorder]} />
           <Text style={[styles.id4, styles.idTypo]}>blink</Text>
         </View>
         <Pressable
-          style={[styles.userPlus, styles.authorPosition]}
+          style={[styles.userPlus, styles.iconLayout1]}
           onPress={openUserPlusIcon}
         >
           <Image
-            style={[styles.icon3, styles.icon3Layout]}
-            contentFit="cover"
+            style={[styles.icon3, styles.iconLayout2]}
+            resizeMode="cover"
             source={require("../assets/userplus1.png")}
           />
         </Pressable>
@@ -148,7 +156,7 @@ const LiveDetail = ({ onClose }: LiveDetailType) => {
 };
 
 const styles = StyleSheet.create({
-  icon3Layout: {
+  iconLayout2: {
     width: "100%",
     overflow: "hidden",
   },
@@ -169,7 +177,7 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.notoSansKRBold,
     fontWeight: "700",
   },
-  timeTypo: {
+  time1Typo: {
     fontFamily: FontFamily.notoSansKRMedium,
     fontWeight: "500",
     fontSize: FontSize.size_xs,
@@ -187,17 +195,39 @@ const styles = StyleSheet.create({
     alignSelf: "stretch",
     alignItems: "center",
   },
-  authorPosition: {
-    top: 61,
+  icons: {
+    top: 18,
+    right: 14,
+    width: 67,
+    height: 11,
     position: "absolute",
+  },
+  time: {
+    marginTop: -8,
+    top: "50%",
+    left: 32,
+    fontSize: FontSize.size_mini,
+    letterSpacing: 0,
+    lineHeight: 20,
+    fontWeight: "600",
+    fontFamily: FontFamily.robotoSemibold,
+    textAlign: "left",
+    color: Color.lightLabelPrimary,
+    position: "absolute",
+  },
+  statusBarLight: {
+    height: 44,
+    zIndex: 0,
+    width: 360,
+    backgroundColor: Color.basicWhite,
   },
   logo: {
     fontSize: FontSize.size_xl,
     lineHeight: 28,
     fontFamily: FontFamily.istokWebBold,
-    textAlign: "left",
-    color: Color.black,
     fontWeight: "700",
+    textAlign: "left",
+    color: Color.lightLabelPrimary,
   },
   menuIcon: {
     overflow: "hidden",
@@ -206,7 +236,7 @@ const styles = StyleSheet.create({
     height: 51,
     paddingVertical: 0,
     justifyContent: "space-between",
-    zIndex: 0,
+    zIndex: 1,
     alignSelf: "stretch",
     alignItems: "center",
     overflow: "hidden",
@@ -214,11 +244,10 @@ const styles = StyleSheet.create({
   },
   liveVideoIcon: {
     height: 601,
-    zIndex: 1,
+    zIndex: 2,
     maxWidth: "100%",
     alignSelf: "stretch",
     overflow: "hidden",
-    width: "100%",
   },
   iconLayout: {
     height: 41,
@@ -231,7 +260,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
     textAlign: "left",
   },
-  time: {
+  time1: {
     color: Color.basicWhite,
     lineHeight: 24,
     marginLeft: 10,
@@ -283,13 +312,13 @@ const styles = StyleSheet.create({
     top: 348,
     left: 0,
     borderRadius: Border.br_7xs,
-    width: 360,
     height: 304,
     padding: Padding.p_7xs,
     maxHeight: "100%",
-    zIndex: 3,
-    position: "absolute",
+    zIndex: 4,
     maxWidth: "100%",
+    position: "absolute",
+    width: 360,
   },
   icon2: {
     backgroundColor: Color.paleturquoise,
@@ -307,9 +336,11 @@ const styles = StyleSheet.create({
     color: Color.basicWhite,
   },
   author: {
-    left: 13,
-    zIndex: 4,
+    top: 117,
+    left: 14,
+    zIndex: 5,
     flexDirection: "row",
+    position: "absolute",
     alignItems: "center",
   },
   userPlusIconOverlay: {
@@ -330,10 +361,10 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   userPlus: {
+    top: 115,
     right: 16,
-    zIndex: 5,
-    height: 24,
-    width: 24,
+    zIndex: 6,
+    position: "absolute",
   },
   liveDetail: {
     alignItems: "center",

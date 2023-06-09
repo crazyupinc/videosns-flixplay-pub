@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { Image } from "expo-image";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { FontFamily, Color, Padding, Border, FontSize } from "../GlobalStyles";
 
@@ -9,14 +8,22 @@ const MyPage = () => {
 
   return (
     <View style={[styles.myPage, styles.iconLayout]}>
-      <View style={[styles.header, styles.frameLayout1]}>
+      <View style={styles.statusBarLight}>
+        <Image
+          style={styles.icons}
+          resizeMode="cover"
+          source={require("../assets/icons.png")}
+        />
+        <Text style={styles.time}>9:41</Text>
+      </View>
+      <View style={styles.header}>
         <Pressable
           style={styles.menuIconLayout}
           onPress={() => navigation.goBack()}
         >
           <Image
             style={[styles.icon, styles.iconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/arrowleft.png")}
           />
         </Pressable>
@@ -25,7 +32,7 @@ const MyPage = () => {
         </View>
         <Image
           style={[styles.menuIcon, styles.menuIconLayout]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/menu.png")}
         />
       </View>
@@ -34,7 +41,7 @@ const MyPage = () => {
           <View style={[styles.icon1, styles.icon1Border]}>
             <Image
               style={styles.image9Icon}
-              contentFit="cover"
+              resizeMode="cover"
               source={require("../assets/image-9.png")}
             />
           </View>
@@ -69,37 +76,37 @@ const MyPage = () => {
         </View>
       </View>
       <View>
-        <View style={[styles.frameContainer, styles.frameLayout1]}>
+        <View style={styles.frameContainer}>
           <Image
             style={styles.frameLayout}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/frame-62.png")}
           />
           <Image
             style={[styles.frameItem, styles.frameLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/frame-63.png")}
           />
           <Image
             style={[styles.frameItem, styles.frameLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/frame-64.png")}
           />
         </View>
-        <View style={[styles.frameView, styles.frameLayout1]}>
+        <View style={styles.frameView}>
           <Image
             style={styles.frameLayout}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/frame-62.png")}
           />
           <Image
             style={[styles.frameItem, styles.frameLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/frame-63.png")}
           />
           <Image
             style={[styles.frameItem, styles.frameLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/frame-64.png")}
           />
         </View>
@@ -108,7 +115,7 @@ const MyPage = () => {
         <View style={[styles.home, styles.homeLayout]}>
           <Image
             style={[styles.menuIcon, styles.menuIconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/home.png")}
           />
         </View>
@@ -117,13 +124,13 @@ const MyPage = () => {
         </View>
         <Image
           style={[styles.uploadIcon, styles.homeLayout]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/upload.png")}
         />
         <View style={[styles.live, styles.homeLayout]}>
           <Image
             style={[styles.menuIcon, styles.menuIconLayout]}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/gift.png")}
           />
         </View>
@@ -137,14 +144,10 @@ const styles = StyleSheet.create({
     width: "100%",
     overflow: "hidden",
   },
-  frameLayout1: {
-    width: 360,
-    flexDirection: "row",
-  },
   idTypo: {
     fontFamily: FontFamily.notoSansKRBold,
     fontWeight: "700",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
   },
   menuIconLayout: {
     height: 24,
@@ -189,14 +192,38 @@ const styles = StyleSheet.create({
     width: 72,
     height: 49,
   },
+  icons: {
+    top: 18,
+    right: 14,
+    width: 67,
+    height: 11,
+    position: "absolute",
+  },
+  time: {
+    marginTop: -8,
+    top: "50%",
+    left: 32,
+    fontSize: FontSize.size_mini,
+    letterSpacing: 0,
+    lineHeight: 20,
+    fontWeight: "600",
+    fontFamily: FontFamily.robotoSemibold,
+    textAlign: "left",
+    color: Color.lightLabelPrimary,
+    position: "absolute",
+  },
+  statusBarLight: {
+    height: 44,
+    width: 360,
+    backgroundColor: Color.basicWhite,
+  },
   icon: {
     height: "100%",
     overflow: "hidden",
   },
   logo: {
-    textAlign: "left",
-    color: Color.black,
     fontSize: FontSize.size_base,
+    textAlign: "left",
   },
   autoAddedFrame: {
     alignSelf: "stretch",
@@ -213,6 +240,7 @@ const styles = StyleSheet.create({
     paddingVertical: 0,
     justifyContent: "space-between",
     flexDirection: "row",
+    width: 360,
     alignItems: "center",
     overflow: "hidden",
     backgroundColor: Color.basicWhite,
@@ -234,7 +262,6 @@ const styles = StyleSheet.create({
   id: {
     marginTop: 6,
     textAlign: "center",
-    color: Color.black,
     fontSize: FontSize.size_base,
   },
   homeFlexBox: {
@@ -244,12 +271,11 @@ const styles = StyleSheet.create({
   text: {
     fontSize: FontSize.size_smi,
     textAlign: "center",
-    color: Color.black,
   },
   text1: {
     marginTop: 4,
     textAlign: "center",
-    color: Color.black,
+    color: Color.lightLabelPrimary,
   },
   group: {
     marginLeft: 60,
@@ -259,7 +285,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   uploadButton: {
-    backgroundColor: Color.black,
+    backgroundColor: Color.lightLabelPrimary,
     padding: Padding.p_3xs,
   },
   temporaryStorage: {
@@ -288,10 +314,12 @@ const styles = StyleSheet.create({
   },
   frameContainer: {
     flexDirection: "row",
+    width: 360,
   },
   frameView: {
     marginTop: 2,
     flexDirection: "row",
+    width: 360,
   },
   home: {
     paddingHorizontal: Padding.p_3xl,
@@ -302,9 +330,9 @@ const styles = StyleSheet.create({
   },
   live1: {
     fontFamily: FontFamily.notoSansKRRegular,
-    textAlign: "left",
-    color: Color.black,
     fontSize: FontSize.size_base,
+    textAlign: "left",
+    color: Color.lightLabelPrimary,
   },
   live: {
     justifyContent: "center",

@@ -1,16 +1,8 @@
 const Stack = createNativeStackNavigator();
 import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { useFonts } from "expo-font";
+
 import Login from "./screens/Login";
-import UploadEditingPhoto from "./screens/UploadEditingPhoto";
-import UploadDetail from "./screens/UploadDetail";
-import FindPassword from "./screens/FindPassword";
-import Register from "./screens/Register";
-import Splash from "./screens/Splash";
-import Upload from "./screens/Upload";
-import Live2 from "./screens/Live2";
-import Main from "./screens/Main";
 import UploadLive from "./screens/UploadLive";
 import UploadTakePhoto from "./screens/UploadTakePhoto";
 import UploadShootVideo from "./screens/UploadShootVideo";
@@ -18,8 +10,17 @@ import EditProfileSelfIntro from "./screens/EditProfileSelfIntro";
 import EditProfileName from "./screens/EditProfileName";
 import EditProfileName1 from "./screens/EditProfileName1";
 import EditProfile from "./screens/EditProfile";
+import UploadEditingPhoto from "./screens/UploadEditingPhoto";
+import UploadDetail from "./screens/UploadDetail";
+import FindPassword from "./screens/FindPassword";
+import Register from "./screens/Register";
+import Splash from "./screens/Splash";
 import MyPage from "./screens/MyPage";
 import LiveDetail from "./screens/LiveDetail";
+import Upload from "./screens/Upload";
+import Live2 from "./screens/Live2";
+import Main from "./screens/Main";
+import MenberPage from "./screens/MenberPage";
 import Home1 from "./components/Home1";
 import Home from "./components/Home";
 import Live1 from "./components/Live1";
@@ -118,24 +119,12 @@ function BottomTabsRoot({ navigation }: any) {
 
 const App = () => {
   const [hideSplashScreen, setHideSplashScreen] = React.useState(false);
-  const [fontsLoaded, error] = useFonts({
-    "Istok Web_bold": require("./assets/fonts/Istok_Web_bold.ttf"),
-    "Noto Sans KR_light": require("./assets/fonts/Noto_Sans_KR_light.ttf"),
-    "Noto Sans KR_regular": require("./assets/fonts/Noto_Sans_KR_regular.ttf"),
-    "Noto Sans KR_medium": require("./assets/fonts/Noto_Sans_KR_medium.ttf"),
-    "Noto Sans KR_bold": require("./assets/fonts/Noto_Sans_KR_bold.ttf"),
-    "Noto Sans KR_black": require("./assets/fonts/Noto_Sans_KR_black.ttf"),
-  });
 
   React.useEffect(() => {
     setTimeout(() => {
       setHideSplashScreen(true);
     }, 3000);
   }, []);
-
-  if (!fontsLoaded && !error) {
-    return null;
-  }
 
   return (
     <>
@@ -146,31 +135,6 @@ const App = () => {
             <Stack.Screen
               name="Login"
               component={Login}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="UploadEditingPhoto"
-              component={UploadEditingPhoto}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="UploadDetail"
-              component={UploadDetail}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="FindPassword"
-              component={FindPassword}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Register"
-              component={Register}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Splash"
-              component={Splash}
               options={{ headerShown: false }}
             />
             <Stack.Screen
@@ -209,8 +173,38 @@ const App = () => {
               options={{ headerShown: false }}
             />
             <Stack.Screen
+              name="UploadEditingPhoto"
+              component={UploadEditingPhoto}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="UploadDetail"
+              component={UploadDetail}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="FindPassword"
+              component={FindPassword}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Register"
+              component={Register}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Splash"
+              component={Splash}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
               name="LiveDetail"
               component={LiveDetail}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="MenberPage"
+              component={MenberPage}
               options={{ headerShown: false }}
             />
           </Stack.Navigator>

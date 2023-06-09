@@ -1,6 +1,5 @@
 import * as React from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
-import { Image } from "expo-image";
+import { Image, StyleSheet, Text, View, Pressable } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Color, FontSize, FontFamily, Padding } from "../GlobalStyles";
 
@@ -9,6 +8,14 @@ const EditProfileSelfIntro = () => {
 
   return (
     <View style={styles.editProfileSelfIntro}>
+      <View style={[styles.statusBarLight, styles.headerLayout]}>
+        <Image
+          style={styles.icons}
+          resizeMode="cover"
+          source={require("../assets/icons.png")}
+        />
+        <Text style={styles.time}>9:41</Text>
+      </View>
       <View style={[styles.header, styles.headerFlexBox]}>
         <Pressable
           style={styles.saveIconLayout}
@@ -16,7 +23,7 @@ const EditProfileSelfIntro = () => {
         >
           <Image
             style={styles.icon}
-            contentFit="cover"
+            resizeMode="cover"
             source={require("../assets/arrowleft.png")}
           />
         </Pressable>
@@ -25,7 +32,7 @@ const EditProfileSelfIntro = () => {
         </View>
         <Image
           style={[styles.saveIcon, styles.saveIconLayout]}
-          contentFit="cover"
+          resizeMode="cover"
           source={require("../assets/save.png")}
         />
       </View>
@@ -42,6 +49,10 @@ const EditProfileSelfIntro = () => {
 };
 
 const styles = StyleSheet.create({
+  headerLayout: {
+    width: 360,
+    backgroundColor: Color.basicWhite,
+  },
   headerFlexBox: {
     flexDirection: "row",
     alignItems: "center",
@@ -55,12 +66,35 @@ const styles = StyleSheet.create({
     width: 328,
     display: "flex",
     color: Color.lightgray,
-    lineHeight: 20,
     fontSize: FontSize.size_xs,
-    textAlign: "left",
     fontFamily: FontFamily.notoSansKRBold,
     fontWeight: "700",
+    textAlign: "left",
+    lineHeight: 20,
     alignItems: "center",
+  },
+  icons: {
+    top: 18,
+    right: 14,
+    width: 67,
+    height: 11,
+    position: "absolute",
+  },
+  time: {
+    marginTop: -8,
+    top: "50%",
+    left: 32,
+    fontSize: FontSize.size_mini,
+    letterSpacing: 0,
+    fontWeight: "600",
+    fontFamily: FontFamily.robotoSemibold,
+    textAlign: "left",
+    color: Color.lightLabelPrimary,
+    lineHeight: 20,
+    position: "absolute",
+  },
+  statusBarLight: {
+    height: 44,
   },
   icon: {
     height: "100%",
@@ -69,10 +103,10 @@ const styles = StyleSheet.create({
   },
   logo: {
     fontSize: FontSize.size_base,
-    color: Color.black,
-    textAlign: "left",
     fontFamily: FontFamily.notoSansKRBold,
     fontWeight: "700",
+    textAlign: "left",
+    color: Color.lightLabelPrimary,
   },
   autoAddedFrame: {
     alignSelf: "stretch",
@@ -81,13 +115,12 @@ const styles = StyleSheet.create({
     overflow: "hidden",
   },
   header: {
-    width: 360,
     height: 51,
     paddingHorizontal: Padding.p_base,
     paddingVertical: 0,
     justifyContent: "space-between",
+    width: 360,
     backgroundColor: Color.basicWhite,
-    flexDirection: "row",
   },
   tagPeople: {
     height: 17,
@@ -108,9 +141,9 @@ const styles = StyleSheet.create({
   editProfileSelfIntro: {
     flex: 1,
     alignItems: "center",
+    backgroundColor: Color.basicWhite,
     overflow: "hidden",
     width: "100%",
-    backgroundColor: Color.basicWhite,
   },
 });
 

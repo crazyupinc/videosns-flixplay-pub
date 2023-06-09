@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_base,
     fontWeight: "300",
     fontFamily: FontFamily.notoSansKRLight,
-    color: Color.black,
+    color: Color.lightLabelPrimary,
     textAlign: "left",
   },
   live: {
