@@ -28,7 +28,7 @@ target_link_libraries(
         react_render_debug
         react_render_graphics
         react_render_uimanager
-        reactnativejni
+        reactnativeutilsjni
         rrc_view
         yoga
 )
@@ -41,6 +41,4 @@ target_compile_options(
         -frtti
         -std=c++17
         -Wall
-        -Wpedantic
-        -Wno-gnu-zero-variadic-macro-arguments
 )

@@ -6,6 +6,8 @@
 cmake_minimum_required(VERSION 3.13)
 set(CMAKE_VERBOSE_MAKEFILE on)
 
+# TODO Those two libraries are building against the same sources
+# and should probably be merged
 file(GLOB reactnativejni_SRC CONFIGURE_DEPENDS *.cpp)
 
 add_compile_options(
@@ -14,6 +16,32 @@ add_compile_options(
         -Wno-unused-lambda-capture
         -std=c++17
         -DWITH_INSPECTOR=1)
+
+##########################
+### React Native Utils ###
+##########################
+
+add_library(
+        reactnativeutilsjni
+        SHARED
+        ${reactnativejni_SRC}
+)
+
+# TODO This should not be ../../
+target_include_directories(reactnativeutilsjni PUBLIC ../../)
+
+target_link_libraries(reactnativeutilsjni
+        android
+        callinvokerholder
+        fb
+        fbjni
+        folly_runtime
+        glog_init
+        react_render_runtimescheduler
+        reactnative
+        runtimeexecutor
+        yoga
+        )
 
 ######################
 ### reactnativejni ###
@@ -39,6 +67,7 @@ target_link_libraries(reactnativejni
         logger
         react_render_runtimescheduler
         reactnative
+        reactnativeutilsjni
         runtimeexecutor
         yoga
         )
